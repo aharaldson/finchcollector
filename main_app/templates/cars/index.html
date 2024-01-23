@@ -5,17 +5,18 @@
 
 {% for car in cars %}
   <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ car.name }}</span>
-      <p>Make: {{ car.make }}</p>
-      <p>Model: {{ car.model }}</p>
-      {% if car.year < 2023 %}
-        <p>Year: {{ car.year }}</p>
-      {% else %}
-        <p>Year: new</p>
-      {% endif %}
-      <p>Type: {{ car.kind }}</p>
-    </div>
+    <a href="{% url 'detail' car.id %}">
+      <div class="card-content">
+          <span class="card-title">{{ car.make }}</span>
+          <p>Model: {{ car.model }}</p>
+        {% if car.year < 2023 %}
+          <p>Year: {{ car.year }}</p>
+        {% else %}
+          <p>Year: new</p>
+        {% endif %}
+          <p>Type: {{ car.kind }}</p>
+      </div>
+    </a>
   </div>
 {% endfor %}
 
